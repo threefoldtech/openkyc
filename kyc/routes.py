@@ -112,7 +112,7 @@ def send_sms_handler():
     body = request.get_json()
     logger.debug('body %s', body)
 
-    user_id = body.get('user_id').lower()
+    user_id = body.get('user_id').lower().removesuffix('.3bot')
     number = body.get('number')
     redirect_url = config.REDIRECT_URL + "/verifysms"
     public_key = body.get('public_key')
